@@ -1,0 +1,23 @@
+Description: Remove flattr link code from documentation
+ The code is actually not used, because the flattr JS stuff is not included.
+ .
+ But we are disabling it anyways.
+Author: Markus Frosch <markus@lazyfrosch.de>
+Last-Update: 2014-10-26
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/share/pnp/documents/de_DE/start.html
++++ b/share/pnp/documents/de_DE/start.html
+@@ -12,12 +12,6 @@
+ </div>
+ 
+ <p>
+-
+-<div class="flattr_left"><a class="FlattrButton" style="display:none;" title="PNP Dokumentation" href="http://docs.pnp4nagios.org/de/pnp-0.6/start" rev="flattr;uid:44827;category:text;language:de;tags:;">PNP4Nagios Dokumentation Version 0.6.x[...]</a></div>
+-</p>
+-
+-<p>
+-
+ <a href="/_detail/pnp-0.6/gallery/pnp-preview-05-08-2009.png?id=de%3Apnp-0.6%3Astart" class="media" title="pnp-0.6:gallery:pnp-preview-05-08-2009.png"><img src="/_media/pnp-0.6/gallery/pnp-preview-05-08-2009.png?w=215" class="mediaright" align="right" title="Theme &quot;smoothness&quot;" alt="Theme &quot;smoothness&quot;" width="215" /></a>
+ </p>
+ 

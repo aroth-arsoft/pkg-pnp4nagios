@@ -1,0 +1,26 @@
+Description: Fix use of flags in Makefiles
+ To pass all hardening flags to gcc.
+Author: Markus Frosch <lazyfrosch@debian.org>
+Last-Update: 2015-07-01
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -83,7 +83,7 @@
+ #
+ ###############################
+ npcd: npcd.c $(NPCDOBJS) $(NPCDHEAD)
+-	$(CC) $(CFLAGS) -o $@ npcd.c $(NPCDOBJS) -lpthread
++	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ npcd.c $(NPCDOBJS) $(LDFLAGS) -lpthread
+ 
+ ###############################
+ #
+@@ -91,7 +91,7 @@
+ #
+ ###############################
+ npcdmod.o: npcdmod.c
+-	$(CC) $(MOD_CFLAGS) $(CFLAGS) -o npcdmod.o npcdmod.c $(MOD_LDFLAGS) $(LDFLAGS) $(LIBS) -fPIC
++	$(CC) $(MOD_CFLAGS) $(CFLAGS) $(CPPFLAGS) -o npcdmod.o npcdmod.c $(MOD_LDFLAGS) $(LDFLAGS) $(LIBS) -fPIC
+ 
+ ###############################
+ #

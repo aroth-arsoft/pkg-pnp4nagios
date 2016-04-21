@@ -1,0 +1,2 @@
+debian/nagios3/config.nagios3.php etc/pnp4nagios
+debian/nagios3/pnp4nagios.conf    etc/apache2/conf-available

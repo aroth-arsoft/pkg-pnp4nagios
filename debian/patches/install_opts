@@ -1,0 +1,16 @@
+Description: Disable INSTALL_OPTS
+Author: Markus Frosch <lazyfrosch@debian.org>
+Last-Update: 2014-10-26
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/configure.ac
++++ b/configure.ac
+@@ -116,7 +116,7 @@
+ AC_SUBST(nagios_grp)
+ AC_DEFINE_UNQUOTED(DEFAULT_NAGIOS_USER,"$nagios_user")
+ AC_DEFINE_UNQUOTED(DEFAULT_NAGIOS_GROUP,"$nagios_grp")
+-INSTALL_OPTS="-o $nagios_user -g $nagios_grp"
++INSTALL_OPTS=""
+ AC_SUBST(INSTALL_OPTS)
+ 
+ # Checks for programs.

@@ -1,0 +1,3 @@
+version=3
+opts="dversionmangle=s/\+dfsg\d*//,uversionmangle=s/\.rc/~rc/" \
+http://sf.net/pnp4nagios/pnp4nagios-(.+)\.tar\.gz

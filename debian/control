@@ -1,0 +1,119 @@
+Source: pnp4nagios
+Section: net
+Priority: optional
+Maintainer: Debian Nagios Maintainer Group <pkg-nagios-devel@lists.alioth.debian.org>
+Uploaders:
+    Markus Frosch <lazyfrosch@debian.org>
+Build-Depends:
+    autotools-dev,
+    debhelper (>= 8),
+    dh-autoreconf,
+    quilt,
+    rrdtool,
+    librrds-perl,
+    python,
+    python-jsmin
+Standards-Version: 3.9.6
+Homepage: http://www.pnp4nagios.org/
+Vcs-Git: git://anonscm.debian.org/pkg-nagios/pkg-pnp4nagios.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-nagios/pkg-pnp4nagios.git
+
+Package: pnp4nagios
+Architecture: all
+Depends:
+    ${misc:Depends},
+    pnp4nagios-bin,
+    pnp4nagios-web,
+Description: monitoring addon to create graphs from performance data
+ PNP is a graphing tool for Nagios, Icinga or similar frameworks that
+ analyzes performance data provided by plugins and stores them
+ automatically into Round Robin Databases (RRD).
+ .
+ It offers integration into the Nagios and Icinga Frontends.
+ .
+ PNP's goal is to be easily configurable and maintainable.
+ .
+ This is a metapackage depending on all parts of PNP4Nagios.
+
+Package: pnp4nagios-bin
+Architecture: any
+Depends:
+    ${misc:Depends},
+    ${perl:Depends},
+    ${shlibs:Depends},
+    librrds-perl,
+    adduser
+Recommends: pnp4nagios-web, icinga | nagios3
+Suggests: rrdtool, rrdcached, perl, libgearman-client-perl, libcrypt-rijndael-perl
+Description: monitoring addon to create graphs from performance data - binaries
+ PNP is a graphing tool for Nagios, Icinga or similar frameworks that
+ analyzes performance data provided by plugins and stores them
+ automatically into Round Robin Databases (RRD).
+ .
+ It offers integration into the Nagios and Icinga Frontends.
+ .
+ PNP's goal is to be easily configurable and maintainable.
+ .
+ This package contains the NPCD-related binaries and process_perfdata.pl.
+
+Package: pnp4nagios-web-config-icinga
+Architecture: all
+Depends: pnp4nagios-web (=${source:Version}), ${misc:Depends}
+Recommends: apache2 | httpd
+Suggests: icinga, icinga-cgi
+Conflicts: pnp4nagios-web-config-nagios3
+Replaces: pnp4nagios-web (<< 0.6.21)
+Description: monitoring addon to create graphs from performance data - Icinga Classic config
+ PNP is a graphing tool for Nagios, Icinga or similar frameworks that
+ analyzes performance data provided by plugins and stores them
+ automatically into Round Robin Databases (RRD).
+ .
+ It offers integration into the Nagios and Icinga Frontends.
+ .
+ PNP's goal is to be easily configurable and maintainable.
+ .
+ This package contains the icinga-cgi configuration for pnp4nagios-web.
+
+Package: pnp4nagios-web-config-nagios3
+Architecture: all
+Depends: pnp4nagios-web (=${source:Version}), ${misc:Depends}
+Recommends: apache2 | httpd
+Suggests: nagios3, nagios3-cgi
+Conflicts: pnp4nagios-web-config-icinga
+Replaces: pnp4nagios-web (<< 0.6.21)
+Description: monitoring addon to create graphs from performance data - Nagios3 CGI config
+ PNP is a graphing tool for Nagios, Icinga or similar frameworks that
+ analyzes performance data provided by plugins and stores them
+ automatically into Round Robin Databases (RRD).
+ .
+ It offers integration into the Nagios and Icinga Frontends.
+ .
+ PNP's goal is to be easily configurable and maintainable.
+ .
+ This package contains the nagios3-cgi configuration for pnp4nagios-web.
+
+Package: pnp4nagios-web
+Architecture: all
+Depends:
+    ${misc:Depends},
+    libapache2-mod-php5 | php5-cgi | php5,
+    php5-gd,
+    libkohana2-php,
+    libfpdi-php,
+    libjs-jquery (>= 1.6.2),
+    libjs-jquery-ui (>= 1.8.ooops.14),
+    libjs-jquery-mobile,
+    rrdtool,
+    adduser
+Recommends: pnp4nagios-bin, pnp4nagios-web-config-icinga | pnp4nagios-web-config-nagios3
+Suggests: rrdcached
+Description: monitoring addon to create graphs from performance data - web interface
+ PNP is a graphing tool for Nagios, Icinga or similar frameworks that
+ analyzes performance data provided by plugins and stores them
+ automatically into Round Robin Databases (RRD).
+ .
+ It offers integration into the Nagios and Icinga Frontends.
+ .
+ PNP's goal is to be easily configurable and maintainable.
+ .
+ This package contains the web-interface for PNP4Nagios.

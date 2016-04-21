@@ -1,0 +1,2 @@
+debian/icinga/config.icinga.php etc/pnp4nagios
+debian/icinga/pnp4nagios.conf   etc/apache2/conf-available

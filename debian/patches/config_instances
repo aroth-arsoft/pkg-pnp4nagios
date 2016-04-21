@@ -1,0 +1,28 @@
+Description: Include a instance based config
+Author: Markus Frosch <lazyfrosch@debian.org>
+Last-Update: 2014-09-01
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/sample-config/pnp/config.php.in
++++ b/sample-config/pnp/config.php.in
+@@ -89,7 +89,8 @@
+ #
+ # Link back to Nagios or Thruk ( www.thruk.org ) 
+ #
+-$conf['nagios_base'] = "/cgi-bin/nagios3";
++## Debian: please see /etc/pnp4nagios/config.<NAME>.php
++##$conf['nagios_base'] = "/cgi-bin/nagios3";
+ 
+ #
+ # Link back to check_mk´s multisite ( http://mathias-kettner.de/checkmk_multisite.html )
+@@ -278,4 +279,10 @@
+                              '#F6E8C3','#C7EAE5','#DFC27D','#80CDC1','#BF812D','#35978F','#8C510A','#01665E');
+ $scheme['mixed3']   = array ('#67001F','#80CDC1','#B2182B','#35978F','#D6604D','#01665E','#F4A582','#003C30',
+                              '#FDDBC7','#92C5DE','#D1E5F0','#2166AC','#4393C3','#8C510A','#053061','#BF812D');
++
++if (file_exists('/etc/pnp4nagios/config.icinga.php')) {
++    include '/etc/pnp4nagios/config.icinga.php';
++} else if (file_exists('/etc/pnp4nagios/config.nagios3.php')) {
++    include '/etc/pnp4nagios/config.nagios3.php';
++}
+ ?>
