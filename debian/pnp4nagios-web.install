@@ -9,5 +9,6 @@ usr/share/doc/pnp4nagios/examples/templates.special/
 usr/share/doc/pnp4nagios/examples/pages/
 usr/share/doc/pnp4nagios/examples/ssi/
 usr/share/pnp4nagios/html/
+usr/share/pnp4nagios/kohana/
 var/log/pnp4nagios/kohana/
 var/lib/pnp4nagios/

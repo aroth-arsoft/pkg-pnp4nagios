@@ -1,0 +1,14 @@
+/tmp/
+/pnp4nagios/
+/pnp4nagios-bin/
+/pnp4nagios-web/
+/pnp4nagios-web-config-icinga/
+/pnp4nagios-web-config-nagios3/
+/.debhelper/
+*.debhelper
+*.debhelper.log
+*.substvars
+/debhelper-build-stamp
+/files
+/autoreconf.after
+/autoreconf.before

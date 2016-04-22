@@ -1,3 +1,16 @@
+pnp4nagios (0.6.25-0.1~aroth1) xenial; urgency=medium
+
+  * new upstream version
+  * do not strip any original parts to get kohana on xenial
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Fri, 22 Apr 2016 11:36:52 +0200
+
+pnp4nagios (0.6.24+dfsg1-4.2) xenial; urgency=medium
+
+  * fixed xenial depends
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Thu, 21 Apr 2016 09:17:02 +0200
+
 pnp4nagios (0.6.24+dfsg1-4.1) wily; urgency=medium
 
   * backport

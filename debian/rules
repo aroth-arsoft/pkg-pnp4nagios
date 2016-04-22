@@ -16,13 +16,10 @@ override_dh_auto_configure:
 		--with-layout=debian \
 		--mandir=/usr/share/man \
 		--infodir=/usr/share/info \
-		--without-kohana \
-		--with-kohana_system=/usr/share/php/kohana2/system
+		--with-kohana_system=/usr/share/pnp4nagios/kohana/system
 
 override_dh_auto_build:
 	dh_auto_build -- all
-	python -m jsmin share/pnp/media/js/jquery.imgareaselect.js \
-	              > share/pnp/media/js/jquery.imgareaselect.min.js
 
 override_dh_auto_install:
 	dh_auto_install -- install-config
@@ -70,13 +67,13 @@ override_dh_auto_install:
 	rm -r debian/tmp/usr/share/pnp4nagios/html/application/vendor/fpdf
 
 	# remove source files
-	rm debian/tmp/usr/share/pnp4nagios/html/media/js/jquery.imgareaselect.Debian.txt
-	rm debian/tmp/usr/share/pnp4nagios/html/media/js/jquery.imgareaselect.js
+	#rm debian/tmp/usr/share/pnp4nagios/html/media/js/jquery.imgareaselect.Debian.txt
+	#rm debian/tmp/usr/share/pnp4nagios/html/media/js/jquery.imgareaselect.js
 
 	# Remove external JavaScript files: jQuery and jQuery-UI
 	# no longer present in DFSG tarball
-	#rm debian/tmp/usr/share/pnp4nagios/html/media/js/jquery-min.js
-	#rm debian/tmp/usr/share/pnp4nagios/html/media/js/jquery-ui.min.js
+	rm debian/tmp/usr/share/pnp4nagios/html/media/js/jquery-min.js
+	rm debian/tmp/usr/share/pnp4nagios/html/media/js/jquery-ui.min.js
 
 	# Clean up some files
 	rmdir debian/tmp/usr/bin
@@ -105,6 +102,14 @@ override_dh_auto_install:
 
 	mkdir debian/tmp/etc/pnp4nagios/templates.d
 	cp debian/README.templates.d debian/tmp/etc/pnp4nagios/templates.d/README
+
+	# remove some kohana files
+	rm debian/tmp/usr/lib/pnp4nagios/kohana/system/fonts/DejaVuSerif.ttf
+	rm debian/tmp/usr/lib/pnp4nagios/kohana/system/fonts/LICENSE
+	rmdir debian/tmp/usr/lib/pnp4nagios/kohana/system/fonts
+
+	# move kohana library files
+	mv debian/tmp/usr/lib/pnp4nagios/kohana debian/tmp/usr/share/pnp4nagios/kohana
 
 override_dh_installinit:
 	dh_installinit -ppnp4nagios-bin --name=npcd

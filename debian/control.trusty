@@ -96,8 +96,9 @@ Package: pnp4nagios-web
 Architecture: all
 Depends:
     ${misc:Depends},
-    libapache2-mod-php7.0 | php7.0-cgi | php7.0,
-    php7.0-gd,
+    libapache2-mod-php5 | php5-cgi | php5,
+    php5-gd,
+    libkohana2-php,
     libfpdi-php,
     libjs-jquery (>= 1.6.2),
     libjs-jquery-ui (>= 1.8.ooops.14),
